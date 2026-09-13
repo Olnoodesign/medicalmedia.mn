@@ -40,11 +40,7 @@
   header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:96px}
   .brand{display:flex;align-items:center;gap:12px}
-  .brand img{height:64px;width:auto;animation:logoGlow 3s ease-in-out infinite}
-  @keyframes logoGlow{
-    0%,100%{filter:drop-shadow(0 0 0px rgba(30,77,196,0))}
-    50%{filter:drop-shadow(0 0 10px rgba(30,77,196,.55))}
-  }
+  .brand img{height:64px;width:auto}
   .nav-links{display:flex;gap:30px;align-items:center}
   .nav-links a{font-weight:600;font-size:.95rem;color:var(--muted);transition:color .2s}
   .nav-links a:hover{color:var(--blue)}
@@ -118,7 +114,7 @@
 
   footer{padding:56px 0 40px;border-top:1px solid var(--line);margin-top:20px}
   .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
-  .foot .brand img{height:56px;animation:logoGlow 3s ease-in-out infinite}
+  .foot .brand img{height:56px}
   .foot .socials{display:flex;gap:14px}
   .foot .socials a{width:42px;height:42px;border-radius:12px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--blue-ink);transition:all .2s}
   .foot .socials a:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
@@ -139,6 +135,9 @@
     .host .txt{padding:36px 28px}
     .subscribe{padding:44px 26px}
   }
+
+  /* Netlify-ийн "Powered by" тэмдгийг нуух */
+  .netlify-badge,[class*="netlify"]{display:none!important}
 </style>
 </head>
 <body>
