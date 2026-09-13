@@ -1,0 +1,49 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+locale: "en"
+
+collections:
+  - name: "content"
+    label: "Сайтын мэдээлэл"
+    files:
+      - name: "site"
+        label: "Нүүр хуудсны текстүүд"
+        file: "content.json"
+        fields:
+          - { label: "Дээд мэдэгдэл (жишээ: шинэ дугаар 7 хоног бүр)", name: "pill", widget: "string" }
+          - { label: "Гол гарчиг", name: "hero_title", widget: "text" }
+          - { label: "Гол тайлбар", name: "hero_lead", widget: "text" }
+          - { label: "YouTube сувгийн холбоос", name: "youtube_url", widget: "string" }
+          - label: "Статистик (3 ширхэг)"
+            name: "stats"
+            widget: "list"
+            max: 3
+            fields:
+              - { label: "Тоо/үг", name: "big", widget: "string" }
+              - { label: "Тайлбар", name: "small", widget: "string" }
+          - label: "Сэдвүүд (3 ширхэг)"
+            name: "topics"
+            widget: "list"
+            max: 3
+            fields:
+              - { label: "Гарчиг", name: "title", widget: "string" }
+              - { label: "Тайлбар", name: "desc", widget: "text" }
+          - label: "Видео дугаарууд"
+            name: "episodes"
+            widget: "list"
+            fields:
+              - { label: "Гарчиг", name: "title", widget: "string" }
+              - { label: "Тайлбар", name: "desc", widget: "text" }
+              - { label: "YouTube видео ID (=-ийн ард байх 11 тэмдэгт)", name: "id", widget: "string", required: false }
+          - { label: "Эмчийн нэр", name: "host_name", widget: "string" }
+          - { label: "Эмчийн үүрэг", name: "host_role", widget: "string" }
+          - { label: "Эмчийн танилцуулга", name: "host_bio", widget: "text" }
+          - { label: "Утас (WhatsApp)", name: "phone", widget: "string" }
+          - { label: "И-мэйл", name: "email", widget: "string" }
+          - { label: "Facebook нэр", name: "facebook_name", widget: "string" }
+          - { label: "Instagram нэр", name: "instagram", widget: "string" }
