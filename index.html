@@ -9,18 +9,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  /* ===== BUYAN ФОНТ (гарчигт) ===== */
-  /* fonts хавтас доторх файлаас ачаална. 3 хэлбэрийг тавьсан. */
+  /* ===== BUYAN ФОНТ (бүх текстэд) ===== */
+  /* fonts хавтас доторх Bold ба Regular файлаас ачаална. */
   @font-face{
     font-family:'Buyan';
-    src:url('fonts/Buyan-Bold.woff2') format('woff2'),
-        url('fonts/Buyan-Bold.ttf') format('truetype');
+    src:url('fonts/Buyan-Bold.ttf') format('truetype');
     font-weight:700;font-display:swap;
   }
   @font-face{
     font-family:'Buyan';
-    src:url('fonts/Buyan-Regular.woff2') format('woff2'),
-        url('fonts/Buyan-Regular.ttf') format('truetype');
+    src:url('fonts/Buyan-Regular.ttf') format('truetype');
     font-weight:400;font-display:swap;
   }
 
@@ -31,9 +29,10 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased}
-  /* Гарчгуудад Buyan, байхгүй бол Manrope-руу уначих fallback */
-  h1,h2,h3,.brand b{font-family:'Buyan','Manrope',sans-serif;line-height:1.12;letter-spacing:0}
+  /* Бүх текст Buyan. Buyan ачаалахгүй бол Manrope-руу уначина. */
+  body{font-family:'Buyan','Manrope',system-ui,sans-serif;font-weight:400;color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;letter-spacing:.01em}
+  /* Гарчиг ба дэд гарчгууд Bold */
+  h1,h2,h3,.brand b,.stat b,.video-float b,.eyebrow,.tag,.btn{font-family:'Buyan','Manrope',sans-serif;font-weight:700;line-height:1.14;letter-spacing:0}
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
   .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
