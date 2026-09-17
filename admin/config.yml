@@ -1,0 +1,90 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+locale: "en"
+
+collections:
+  - name: "content"
+    label: "🖊️ Сайтын мэдээлэл"
+    files:
+      - name: "site"
+        label: "Нүүр хуудас"
+        file: "content.json"
+        fields:
+          - { label: "① Дээд улаан мэдэгдэл", name: "pill", widget: "string", hint: "Жишээ: Doctor Corner · Пүрэв гараг бүр 19:00 цагт" }
+          - { label: "① Гол гарчиг", name: "hero_title", widget: "text", hint: "Хуудасны хамгийн том гарчиг" }
+          - { label: "① Гол тайлбар", name: "hero_lead", widget: "text", hint: "Гарчгийн доорх тайлбар текст" }
+          - { label: "① YouTube сувгийн холбоос", name: "youtube_url", widget: "string" }
+          - { label: "① YouTube playlist холбоос", name: "playlist_url", widget: "string", hint: "Нэвтрүүлэг товч энэ рүү очно" }
+
+          - { label: "⭐ Онцлох дугаар — Видео ID", name: "featured_id", widget: "string", required: false, hint: "Видео линкэн доторх v= -ийн ард 11 тэмдэгт. Хоосон бол 'Дарж үзэх' товч гарна." }
+          - { label: "⭐ Онцлох дугаар — Гарчиг", name: "featured_title", widget: "string" }
+          - { label: "⭐ Онцлох дугаар — Тайлбар", name: "featured_desc", widget: "text" }
+
+          - label: "📊 Статистик (3 ширхэг)"
+            name: "stats"
+            widget: "list"
+            max: 3
+            summary: "{{fields.big}} — {{fields.small}}"
+            fields:
+              - { label: "Тоо/үг", name: "big", widget: "string" }
+              - { label: "Тайлбар", name: "small", widget: "string" }
+
+          - label: "📚 Сэдвүүд (3 ширхэг)"
+            name: "topics"
+            widget: "list"
+            max: 3
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Гарчиг", name: "title", widget: "string" }
+              - { label: "Тайлбар", name: "desc", widget: "text" }
+
+          - { label: "🤝 Хамтрагч — Хэсгийн гарчиг", name: "partners_title", widget: "string", required: false }
+          - { label: "🤝 Хамтрагч — Хэсгийн тайлбар", name: "partners_desc", widget: "string", required: false }
+          - label: "🤝 Хамтрагч байгууллагууд (чирж дараалал солино)"
+            name: "partners"
+            widget: "list"
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Лого", name: "logo", widget: "image", required: false, hint: "Байгууллагын лого upload хийнэ" }
+              - { label: "Нэр", name: "name", widget: "string" }
+              - { label: "Тайлбар", name: "desc", widget: "string", required: false }
+              - { label: "Хуудасны холбоос", name: "url", widget: "string", hint: "Дарахад очих байгууллагын хуудас" }
+
+          - { label: "💰 Багц — Хэсгийн гарчиг", name: "packages_title", widget: "string", required: false }
+          - { label: "💰 Багц — Хэсгийн тайлбар", name: "packages_desc", widget: "string", required: false }
+          - label: "💰 Үйлчилгээний багцууд"
+            name: "packages"
+            widget: "list"
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Нэр (Монгол)", name: "name", widget: "string" }
+              - { label: "Нэр (Англи)", name: "en", widget: "string", required: false }
+              - { label: "Онцлох багц эсэх", name: "featured", widget: "boolean", default: false }
+              - { label: "Онцлогууд (| тэмдгээр тусгаарлана)", name: "features", widget: "text", hint: "Жишээ: Сард 4 видео|Зохиол санаа|Эвлүүлэг" }
+
+          - { label: "🏢 Студи — Гарчиг", name: "studio_title", widget: "string", required: false }
+          - { label: "🏢 Студи — Тайлбар", name: "studio_desc", widget: "text", required: false }
+          - { label: "🏢 Студи — Утас (залгах)", name: "studio_phone", widget: "string", required: false, hint: "Жишээ: 88047485" }
+          - { label: "🏢 Студи — Messenger холбоос", name: "studio_messenger", widget: "string", required: false, hint: "m.me/таны-хуудас" }
+
+          - { label: "💬 Эмчээс асуух — Facebook холбоос", name: "comment_fb_url", widget: "string", hint: "Долоо хоног бүр шэйрлэсэн шинэ постын линк" }
+          - { label: "💬 Эмчээс асуух — YouTube холбоос", name: "comment_yt_url", widget: "string" }
+          - { label: "💬 Эмчээс асуух — Тэмдэглэл", name: "comment_note", widget: "string" }
+
+          - { label: "👨‍⚕️ Эмч — Нэр", name: "host_name", widget: "string" }
+          - { label: "👨‍⚕️ Эмч — Үүрэг", name: "host_role", widget: "string" }
+          - { label: "👨‍⚕️ Эмч — Танилцуулга", name: "host_bio", widget: "text" }
+          - { label: "👨‍⚕️ Эмч — Зураг", name: "host_image", widget: "image", required: false }
+
+          - { label: "📞 Утас (WhatsApp)", name: "phone", widget: "string" }
+          - { label: "📞 И-мэйл", name: "email", widget: "string" }
+          - { label: "📞 Facebook нэр", name: "facebook_name", widget: "string" }
+          - { label: "📞 Facebook холбоос", name: "facebook_url", widget: "string" }
+          - { label: "📞 Instagram нэр", name: "instagram", widget: "string" }
