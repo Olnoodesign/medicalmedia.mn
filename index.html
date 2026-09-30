@@ -151,7 +151,7 @@
 
   /* Хамтрагч байгууллагууд — зөөлөн гүйдэг carousel */
   .partners-grid{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-  .partners-track{display:flex;gap:22px;width:max-content;animation:partnersScroll 40s linear infinite}
+    .partners-track.few{animation:none;justify-content:center;width:100%}
   .partners-grid.has-partners:hover .partners-track{animation-play-state:paused}
   @keyframes partnersScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   .partner{flex:none;width:230px;display:flex;flex-direction:column;align-items:center;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px 24px;text-decoration:none;color:var(--ink);transition:transform .18s ease,box-shadow .2s ease}
@@ -160,7 +160,7 @@
   .partner .p-logo img{max-height:80px;max-width:80px;width:auto;object-fit:contain}
   .partner .p-logo-empty{font-family:'Buyan','Manrope',sans-serif;font-size:2rem;font-weight:700;color:var(--blue);background:linear-gradient(135deg,var(--blue),var(--blue-deep));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   .partner b{font-family:'Buyan','Manrope',sans-serif;font-size:1.1rem;color:var(--blue-ink);margin-bottom:6px}
-  .partner p{color:var(--muted);font-size:.88rem;margin:0}
+  .partner p{display:none}
   .partners-empty{text-align:center;color:var(--muted);padding:30px;font-size:1rem}
 
   /* Үнийн багцууд */
@@ -507,7 +507,11 @@
         return '<a class="partner" href="'+esc(x.url||'#')+'" target="_blank" rel="noopener">'+logo+
           '<b>'+esc(x.name)+'</b>'+(x.desc?'<p>'+esc(x.desc)+'</p>':'')+'</a>';
       }).join('');
-      pg.innerHTML='<div class="partners-track">'+cards+cards+'</div>';
+              return '<a class="partner" href="'+esc(x.url||'#')+'" target="_blank" rel="noopener">'+logo+
+          '<b>'+esc(x.name)+'</b></a>';
+      }).join('');
+      if(partners.length<4){pg.innerHTML='<div class="partners-track few">'+cards+'</div>';}
+      else{pg.innerHTML='<div class="partners-track">'+cards+cards+'</div>';}
       pg.classList.add('has-partners');
     } else {
       pg.innerHTML='<div class="partners-empty">Хамтрагч байгууллага удахгүй нэмэгдэнэ.</div>';
